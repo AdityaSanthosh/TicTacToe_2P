@@ -15,24 +15,24 @@ void Draw()
     {
         for(int j=0;j<3;j++)
         {
-            cout << matrix[i][j]<<" ";
+            cout << matrix[i][j]<<' ';
         }
-        cout << "\n";   
+        cout << '\n';   
     }
-    cout<<"\n";
+    cout<<'\n';
 }
 void Input()
 {
     int a;
     cout<<"It's  "<<player<<" 's turn. Enter the number of the field"<<'\n';
-    cout<<"\n";
+    cout<<'\n';
     cin>>a;
     for(int &x:vec)
     {
         if(x==a)
         {
-            cout<<"Sorry,the field is already occupied"<<"\n";
-            cout<<"Please enter another field"<<"\n";
+            cout<<"Sorry,the field is already occupied"<<'\n';
+            cout<<"Please enter another field"<<'\n';
             Input();
         }
         else
@@ -43,13 +43,13 @@ void Input()
     }
     if(a>9 || a<0)
     {
-        cout<<"Invalid field"<<'\n';
-        system("pause");
+        cout<<"Invalid field."<<"  Please enter valid field number"<<'\n';
+        cout<<'\n';
+        cin>>a;
     }
     if(a==1)
     {
-        matrix[0][0]=player;
-        
+        matrix[0][0]=player;   
     }
     if(a==2)
     {
@@ -129,11 +129,11 @@ int main()
     {
         if(n==9)
         {
-            cout<<"It's a draw"<<"\n";
+            cout<<"It's a draw"<<'\n';
             break;
         }
         Input();
-        cout<<"\n";
+        cout<<'\n';
         Draw();
         CheckWin();
         if(MatchOver==true)
@@ -144,7 +144,7 @@ int main()
         n++;
         TogglePlayer();
     }
-    cout<<"\n";
+    cout<<'\n';
     system("pause");
     return 0;
 }
