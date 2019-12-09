@@ -10,7 +10,10 @@ vector<int> vec(9);
 char matrix[3][3]={'1','2','3','4','5','6','7','8','9'};
 void Draw()
 {    
+    // In Case of Windows use, system("cls")
     system("cls");
+    // In case of Linux,use, system("clear")
+    // system("clear");
     for(int i=0;i<3;i++)
     {
         for(int j=0;j<3;j++)
