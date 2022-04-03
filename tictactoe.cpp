@@ -1,12 +1,12 @@
 #include <iostream>
-#include <vector>
+#include <set>
 
 using namespace std;
 
 char player = 'X';
 bool MatchOver = false;
 int n=0;
-vector<int> vec(9);
+set<int> vec;
 char matrix[3][3]={'1','2','3','4','5','6','7','8','9'};
 void Draw()
 {    
@@ -27,19 +27,14 @@ void Input()
     cout<<"It's  "<<player<<" 's turn. Enter the number of the field"<<'\n';
     cout<<'\n';
     cin>>a;
-    for(int &x:vec)
+    if(vec.find(a)==vec.end())
     {
-        if(x==a)
-        {
-            cout<<"Sorry,the field is already occupied"<<'\n';
-            cout<<"Please enter another field"<<'\n';
-            Input();
-        }
-        else
-        {
-            vec.push_back(a);
-        }
-        
+        vec.insert(a);
+    }
+    else {
+        cout<<"Sorry,the field is already occupied"<<'\n';
+        cout<<"Please enter another field"<<'\n';
+        Input();
     }
     if(a>9 || a<0)
     {
@@ -136,7 +131,7 @@ int main()
         cout<<'\n';
         Draw();
         CheckWin();
-        if(MatchOver==true)
+        if(MatchOver)
         {
             cout<<"The Player "<<player<<" Won"<<'\n';
             break;
